@@ -2,11 +2,8 @@ const config = require('../configuration')
 const azure = require('azure-storage')
 const chalk = require('chalk')
 
-const {Azure} = config
-const {AzureConnectionString, AzureFilter, QueueName} = Azure || {}
-
 function initialise() {
-    const init = !!AzureConnectionString
+    const init = !!config.AzureConnectionString
     const queueSvc = init
         ? azure.createQueueService()
         : undefined
